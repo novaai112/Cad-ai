@@ -9,7 +9,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "CAD AI",
   description: "Create SolidWorks 3D models instantly from text prompts or images. Powered by Gemini, GPT-4o, and Claude.",
-  generator: "v0.app",
+  generator: "Nova.ai",
   icons: {
     icon: "/favicon.jpg",
     apple: "/favicon.jpg",
