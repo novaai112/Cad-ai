@@ -116,7 +116,8 @@ export function ChatShell() {
         })
 
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`)
+          const errData = await response.json().catch(() => ({ error: `HTTP ${response.status}` }))
+          throw new Error(errData.error || `HTTP error! status: ${response.status}`)
         }
 
         const reader = response.body?.getReader()
@@ -197,6 +198,7 @@ export function ChatShell() {
         size="icon"
         className="absolute top-4 left-4 z-20 h-10 w-10 rounded-full bg-zinc-100 hover:bg-zinc-200 text-stone-600"
         aria-label="Reset chat"
+        id="reset-chat-btn"
       >
         <MessageSquareDashed className="w-5 h-5" />
       </Button>

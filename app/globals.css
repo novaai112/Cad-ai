@@ -343,62 +343,6 @@
   }
 }
 
-/* Faster animation speeds for more dynamic movement */
-.orb-circle-1 {
-  animation: orb-float-1 3s ease-in-out infinite;
-}
-
-.orb-circle-2 {
-  animation: orb-float-2 3.5s ease-in-out infinite;
-}
-
-.orb-circle-3 {
-  animation: orb-float-3 4s ease-in-out infinite;
-}
-
-.orb-circle-4 {
-  animation: orb-float-4 2.5s ease-in-out infinite;
-}
-
-/* Added intro animation for orb - comes from top, starts at 200% with blur and 0 opacity */
-@keyframes orb-intro {
-  0% {
-    /* Increased starting scale from 2 to 4 (200% larger) */
-    transform: translateY(-100px) scale(4);
-    filter: blur(30px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0) scale(1);
-    filter: blur(0px);
-    opacity: 1;
-  }
-}
-
-/* Increased animation duration to 4s */
-.orb-intro {
-  animation: orb-intro 4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
-}
-
-/* Added intro animation for composer - slides up from bottom */
-@keyframes composer-intro {
-  0% {
-    transform: translateY(100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Increased animation duration to 4s with 1s delay */
-.composer-intro {
-  animation: composer-intro 4s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
-  opacity: 0;
-}
-
 /* Added hue rotation animation for orb background */
 @keyframes orb-hue-rotate {
   0% {
@@ -549,6 +493,42 @@
   animation: orb-orbit-5 5.5s ease-in-out infinite;
 }
 
+/* Added orb intro animation */
+@keyframes orb-intro {
+  0% {
+    transform: translateY(-100px) scale(4);
+    filter: blur(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.orb-intro {
+  animation: orb-intro 4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+/* Added intro animation for composer - slides up from bottom */
+@keyframes composer-intro {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.composer-intro {
+  animation: composer-intro 4s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards;
+  opacity: 0;
+}
+
 /* Added text intro blur animation for title/subtitle */
 @keyframes text-blur-intro {
   0% {
@@ -571,4 +551,13 @@
 .text-blur-intro-delay {
   animation: text-blur-intro 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
   opacity: 0;
+}
+
+/* Bounce animation for subtle mic button */
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+.animate-bounce-subtle {
+  animation: bounce-subtle 1s ease-in-out infinite;
 }

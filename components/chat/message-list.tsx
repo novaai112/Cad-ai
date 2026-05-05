@@ -143,10 +143,10 @@ export function MessageList({ messages, isStreaming, error, onRetry, isLoaded }:
             <AnimatedOrb size={128} />
           </div>
           <p className={`text-lg font-medium text-gray-500 ${hasAnimated ? "text-blur-intro" : ""}`}>
-            Hi, my name is Jarvis
+            Hi, I&apos;m SolidWorks AI
           </p>
           <p className={`text-sm mt-1 text-gray-400 ${hasAnimated ? "text-blur-intro-delay" : ""}`}>
-            Send a message to begin chatting with the AI assistant
+            Describe a 3D model or upload an image to get started
           </p>
         </div>
       )}

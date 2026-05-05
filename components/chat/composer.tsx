@@ -245,7 +245,7 @@ export function Composer({ onSend, onStop, isStreaming, disabled, selectedModel,
                 handleInput()
               }}
               onKeyDown={handleKeyDown}
-              placeholder={isRecording ? "Listening..." : "Type a message... (Shift+Enter for new line)"}
+              placeholder={isRecording ? "Listening..." : "Ask about SolidWorks or describe a model to create..."}
               disabled={isStreaming || disabled}
               rows={1}
               className={cn(
@@ -254,6 +254,7 @@ export function Composer({ onSend, onStop, isStreaming, disabled, selectedModel,
                 "max-h-[56px] overflow-y-auto",
               )}
               aria-label="Message input"
+              id="message-input"
             />
 
             {isRecording && (
@@ -270,6 +271,7 @@ export function Composer({ onSend, onStop, isStreaming, disabled, selectedModel,
                 }}
                 className="relative h-9 w-9 shrink-0 transition-all rounded-full flex items-center justify-center cursor-pointer hover:scale-105"
                 aria-label="Stop generating"
+                id="stop-btn"
               >
                 <AnimatedOrb size={36} variant="red" />
                 <Square
@@ -289,6 +291,7 @@ export function Composer({ onSend, onStop, isStreaming, disabled, selectedModel,
                     : "cursor-pointer hover:scale-105",
                 )}
                 aria-label="Send message"
+                id="send-btn"
               >
                 <AnimatedOrb size={36} />
               </button>
@@ -331,6 +334,7 @@ export function Composer({ onSend, onStop, isStreaming, disabled, selectedModel,
               size="icon"
               className="h-9 w-9 shrink-0 bg-zinc-100 hover:bg-zinc-200 text-stone-700 rounded-full"
               aria-label="Attach image"
+              id="attach-image-btn"
             >
               <Paperclip className="w-4 h-4" />
             </Button>
@@ -344,6 +348,7 @@ export function Composer({ onSend, onStop, isStreaming, disabled, selectedModel,
                   className="h-9 w-9 shrink-0 bg-zinc-100 hover:bg-zinc-200 text-stone-700 rounded-full"
                   aria-label="Select AI model"
                   onClick={playClickSound}
+                  id="model-selector"
                 >
                   <Brain className="w-4 h-4" />
                 </Button>
@@ -366,6 +371,7 @@ export function Composer({ onSend, onStop, isStreaming, disabled, selectedModel,
                         "flex items-center cursor-pointer gap-3 rounded-lg",
                         selectedModel === model.id && "bg-stone-100",
                       )}
+                      id={`model-${model.id.replace(/\//g, "-")}`}
                     >
                       <Image
                         src={model.icon || "/placeholder.svg"}

@@ -75,7 +75,7 @@ export function MarkdownRenderer({ content, className, isStreaming = false }: Ma
       }
 
       // Check for links
-      const linkMatch = remaining.match(/^\[([^\]]+)\]$$([^)]+)$$/)
+      const linkMatch = remaining.match(/^\[([^\]]+)\]\(([^)]+)\)/)
       if (linkMatch) {
         elements.push(
           <a
@@ -93,7 +93,7 @@ export function MarkdownRenderer({ content, className, isStreaming = false }: Ma
       }
 
       // Find next special character or add remaining text
-      const nextSpecial = remaining.search(/[`*[\]()]/)
+      const nextSpecial = remaining.search(/[`*\[\]()]/)
       if (nextSpecial === -1) {
         elements.push(remaining)
         break
@@ -162,7 +162,7 @@ export function MarkdownRenderer({ content, className, isStreaming = false }: Ma
       }
 
       // Check for links
-      const linkMatch = remaining.match(/^\[([^\]]+)\]$$([^)]+)$$/)
+      const linkMatch = remaining.match(/^\[([^\]]+)\]\(([^)]+)\)/)
       if (linkMatch) {
         elements.push(
           <a
@@ -180,7 +180,7 @@ export function MarkdownRenderer({ content, className, isStreaming = false }: Ma
       }
 
       // Find next special character or add remaining text
-      const nextSpecial = remaining.search(/[`*[\]()]/)
+      const nextSpecial = remaining.search(/[`*\[\]()]/)
       if (nextSpecial === -1) {
         const words = remaining.split(/(\s+)/)
         elements.push(
